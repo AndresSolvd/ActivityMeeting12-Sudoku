@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +18,19 @@ public class Main {
                 {0, 0, 5, 2, 0, 6, 3, 0, 0}
         };
 
-        if (!checkSudoku(sudokuBoard, 3) | !checkRowsAndColumns(sudokuBoard)) {
+/*                int[][] sudokuBoard = {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0}
+        };*/
+
+        if (!checkSudoku(sudokuBoard, 3)) {
             System.out.println("Sudoku wrong");
         } else {
             System.out.println("Sudoku ok");
@@ -39,8 +54,8 @@ public class Main {
 
     public static boolean checkRowsAndColumns(int[][] arr) {
 
-        ArrayList<Integer> listRow = new ArrayList<>(Arrays.asList());
-        ArrayList<Integer> listColumn = new ArrayList<>(Arrays.asList());
+        ArrayList<Integer> listRow = new ArrayList<>();
+        ArrayList<Integer> listColumn = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
             listRow.clear();
@@ -60,15 +75,14 @@ public class Main {
     }
 
     public static boolean checkArrayByCoordinates(int[][] arr, int fromX, int fromY, int toX, int toY) {
-        int[][] byThree = new int[3][3];
+        ArrayList<Integer> list = new ArrayList<>();
 
-        for (fromX = 0; fromX < toX; fromX++) {
-            for (fromY = 0; fromY < toY; fromY++) {
-                byThree[fromX][fromY] = arr[fromX][fromY];
+        for (int i = fromX; i < toX; i++) {
+            for (int j = fromY; j < toY; j++) {
+                list.add(arr[i][j]);
             }
         }
-        if (!checkRowsAndColumns(byThree)) {
-            System.out.println("Sudoku is not valid");
+        if(!checkIsValid(list)) {
             return false;
         }
         return true;
@@ -78,9 +92,16 @@ public class Main {
 
         for (int i = 0; i < array.length; i = i + subGroupLength) {
             for (int j = 0; j < array.length; j = j + subGroupLength) {
-                return checkArrayByCoordinates(array, i, j, i + subGroupLength, j + subGroupLength);
+                if (!checkArrayByCoordinates(array, i, j, i + subGroupLength, j + subGroupLength)) {
+                    return false;
+                }
             }
         }
+
+        if (!checkRowsAndColumns(array)){
+            return false;
+        }
+
         return true;
     }
 }
