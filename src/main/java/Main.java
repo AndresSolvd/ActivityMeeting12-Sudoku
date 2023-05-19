@@ -82,10 +82,7 @@ public class Main {
                 list.add(arr[i][j]);
             }
         }
-        if(!checkIsValid(list)) {
-            return false;
-        }
-        return true;
+        return checkIsValid(list);
     }
 
     public static boolean checkSudoku(int[][] array, int subGroupLength) {
@@ -98,11 +95,7 @@ public class Main {
             }
         }
 
-        if (!checkRowsAndColumns(array)){
-            return false;
-        }
-
-        return true;
+        return checkRowsAndColumns(array);
     }
 }
 
