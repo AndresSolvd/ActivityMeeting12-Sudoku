@@ -6,7 +6,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-/*        int[][] sudokuBoard = {
+        int[][] sudokuBoard = {
                 {3, 0, 6, 5, 0, 8, 4, 0, 0},
                 {5, 2, 0, 0, 0, 0, 0, 0, 0},
                 {0, 8, 7, 0, 0, 0, 0, 3, 1},
@@ -16,9 +16,9 @@ public class Main {
                 {1, 3, 0, 0, 0, 0, 2, 5, 0},
                 {0, 0, 0, 0, 0, 0, 0, 7, 4},
                 {0, 0, 5, 2, 0, 6, 3, 0, 0}
-        };*/
+        };
 
-                int[][] sudokuBoard = {
+/*                int[][] sudokuBoard = {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -28,7 +28,7 @@ public class Main {
                 {0, 0, 0, 0, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}
-        }
+        }*/
 
         if (!checkSudoku(sudokuBoard, 3)) {
             System.out.println("Sudoku wrong");
