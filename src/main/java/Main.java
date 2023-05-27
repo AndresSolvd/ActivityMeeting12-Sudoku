@@ -28,7 +28,7 @@ public class Main {
                 {0, 0, 0, 0, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}
-        };*/
+        }*/
 
         if (!checkSudoku(sudokuBoard, 3)) {
             System.out.println("Sudoku wrong");
